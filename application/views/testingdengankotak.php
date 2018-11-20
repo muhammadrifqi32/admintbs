@@ -142,8 +142,8 @@
                     <div class="card card-body">
                         <div class="form-group">
                             <label>Upload Gambar Untuk Cek Kematangan Sawit Dengan Kotak</label>
-                            <?php echo form_open_multipart('welcome/aksi_upload');?>
-                            <input type="file" class="form-control" name="image" accept="image/*">
+                            <?php echo form_open_multipart('user2/aksi_upload');?>
+                            <input type="file" class="form-control" name="image" accept="image/*" capture="camera">
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
@@ -152,7 +152,33 @@
                                 <?php echo $this->session->flashdata('Berhasil'); ?>
                             </div>
                         </div>
+                        <?php
+                        require_once __DIR__ . '\php-ml\vendor\autoload.php';
+
+                        use Phpml\Classification\KNearestNeighbors;
+                        $data=$this->db->query("SELECT r,g,b,label FROM `datatraining2`")->result_array();
+                        $array=[];
+                        $label=[];
+                                // print_r($data);
+                        for ($i=0; $i < count($data); $i++) { 
+                            $arrayName = array(0 => $data[$i]['r'],1=>$data[$i]['g'],2=>$data[$i]['b'] );
+                                    //print_r($arrayName);
+                            $array[$i]=$arrayName;
+                            $label[$i]=$data[$i]['label'];
+                        }
+                                //print_r($array);
+
+                        $samples = $array;
+                                //print_r($samples);
+                        $labels = $label;
+
+                        $classifier = new KNearestNeighbors();
+                        $classifier->train($samples, $labels);
+                        if (isset($r)) {
+                            echo $classifier->predict([$r, $g,$b]);
+                        }
                         
+                        ?>
                     </div>
                 </div>
             </div>
