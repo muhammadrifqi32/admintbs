@@ -2,7 +2,6 @@
 <html dir="ltr" lang="en">
 
 <head>
-    <!-- <meta http-equiv="refresh" content="30"> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -13,9 +12,8 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>assets2/assets/images/favicon.png">
     <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
-    <link href="<?php echo base_url();?>assets2/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="<?php echo base_url();?>assets2/dist/css/style.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -119,7 +117,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="#">Home</a>
+                                    <a href="<?php echo base_url();?>Welcome/index/">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Basic Table</li>
                             </ol>
@@ -141,12 +139,19 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-body">
-                        <h4 class="card-title">Default Forms</h4>
-                        <h5 class="card-subtitle"> All bootstrap element classies </h5>
-                        <div class="card-body">
-                            <h4 class="card-title">Sales Ratio</h4>
-                            <div class="sales ct-charts mt-3"></div>
+                        <div class="form-group">
+                            <label>Upload Gambar Untuk Cek Kematangan Sawit Tanpa Kotak</label>
+                            <?php echo form_open_multipart('user/aksi_upload');?>
+                            <input type="file" class="form-control" name="image" accept="image/*">
                         </div>
+                        <div class="form-group">
+                            <div class="col-sm-12">
+                                <button class="btn btn-success" value="upload">Upload</button>
+                                <?php echo $this->session->flashdata('Gagal'); ?>
+                                <?php echo $this->session->flashdata('Berhasil'); ?>
+                            </div>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
@@ -201,11 +206,6 @@
 <script src="<?php echo base_url();?>assets2/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url();?>assets2/dist/js/custom.min.js"></script>
-<!--This page JavaScript -->
-<!--chartis chart-->
-<script src="<?php echo base_url();?>assets2/assets/libs/chartist/dist/chartist.min.js"></script>
-<script src="<?php echo base_url();?>assets2/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
-<script src="<?php echo base_url();?>assets2/dist/js/pages/dashboards/dashboard1.js"></script>
 </body>
 
 </html>

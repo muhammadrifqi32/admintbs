@@ -20,7 +20,6 @@ class Login extends CI_Controller{
 			'password' => md5($password)
 			);
 		$cek = $this->m_login->cek_login("admin",$where)->num_rows();
-		$cek2 =  $this->m_login->cek_login("user",$where)->num_rows();
 		if($cek > 0){
  
 			$data_session = array(
@@ -32,16 +31,6 @@ class Login extends CI_Controller{
  
 			redirect(base_url("Welcome"));
  
-		}
-		elseif ($cek2 > 0){
-			$data_session = array(
-				'nama' => $username,
-				'status' => "login"
-				);
- 
-			$this->session->set_userdata($data_session);
- 
-			redirect(base_url("Welcome/knn"));
 		}
 		else{
 			$error = array('error' => $this->session->set_flashdata('Gagal', '<p>*Username atau Password Salah</p>'));
