@@ -107,7 +107,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Basic Table</h4>
+                    <h4 class="page-title">Dashboard</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -116,7 +116,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo base_url();?>Welcome/index/">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Basic Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
                             </ol>
                         </nav>
                     </div>
@@ -136,8 +136,14 @@
             <div class="row">
                 <div class="col-12">
                     <div class="card card-body">
-                        <h4 class="card-title">Sales Ratio</h4>
-                        <div class="sales ct-charts mt-3"></div>
+                        <h4 class="card-title">Sekilas Tentang Sawit</h4>
+                        <h5 class="card-subtitle"></h5>
+                        <div class="card-body">
+                            <h4 class="card-title"></h4>
+                            <p align="justify">Tanaman kelapa sawit atau yang memiliki nama latin <i>elaeis guinensis jack</i> merupakan tumbuhan tropis yang tergolong dalam famili Palmae dan berasal dari Nigeria, Afrika Barat. Meskipun demikian, dapat tumbuh di luar daerah asalnya, termasuk di Indonesia. Sampai saat ini Indonesia merupakan salah satu produsen utama minyak sawit dunia atau yang dikenal dengan <i>Crude Palm Oil</i> (CPO) selain Malaysia dan Nigeria. Menurut Fauzi dkk. (2006) tanaman kelapa sawit mulai berbunga dan membentuk buah setelah berumur 2-3 tahun. Buah akan menjadi masak sekitar 5-6 bulan setelah penyerbukan. Proses pematangan buah kelapa sawit dapat dilihat dari perubahan warna kulit buahnya. Buah akan berubah menjadi merah jingga ketika masak. Pada saat buah masak, kandungan minyak pada daging buah telah maksimal. Jika terlalu matang, buah kelapa sawit akan jatuh dari tangkai tandannya.</p>
+                            <p align="justify">Ada beberapa tingkatan kematangan dari tandan buah segar (TBS) yang dipanen. Tingkat kematangan tersebut sangat mempengaruhi mutu panen, termasuk kualitas minyak sawit yang dihasilkan. Yaitu mentah, matang, dan terlewat matang. Untuk mengetahui tingkat kematangan TBS masih dilakukan dengan cara konvensional, yaitu dengan melihat perubahan warna dan jumlah brondolan yang jatuh. Saat buah telah dipanen, buah akan dikumpulkan sebelum diangkut truk ke pabrik seperti pada gambar 1.1. Pada proses ini sering terjadi kendala, dimana ada buah yang layak dan tidak layak untuk diangkut ke pabrik. Buah yang layak untuk diangkut adalah buah yang telah matang dan terlewat matang, sementara buah mentah tidak layak untuk diolah. Tentunya hanya buah yang layak untuk diolah yang akan diangkut truk untuk dibawa ke pabrik. Akan tetapi, untuk saat ini buah yang tidak layak angkut tetap ikut terangkut ke pabrik.</p>
+                            <p align="justify">Di era globalisasi seperti sekarang, teknologi bisa dimanfaatkan untuk mempermudah pendeteksian kematangan TBS. Salah satu teknologi yang bisa digunakan adalah pengolahan citra digital. Munir (2004) menyatakan pengolahan citra atau yang lebih dikenal dengan gambar adalah pemrosesan citra, khususnya dengan menggunakan komputer, menjadi citra yang kualitasnya lebih baik. Dengan memanfaatkan kamera untuk mengambil gambar, bisa didapatkan informasi yang dibutuhkan.</p>
+                            <p align="justify">Berdasarkan masalah diatas, maka dilakukanlah penelitian untuk membuat aplikasi pendeteksi kematangan TBS kelapa sawit dengan memanfaatkan citra. Dengan menggunakan citra dapat memberi informasi mengenai tingkat kematangan TBS yang layak dan tidak layak untuk diangkut ke pabrik. Tingkat kematangan TBS ditentukan oleh warna, oleh karena itu digunakan metode ekstraksi warna <i>Red, Green dan Blue</i> (RGB) untuk mendapatkan nilai numerik dari citra TBS (Kusumanto dan Tompunu, 2011). Setelah nilai numerik dari citra TBS didapatkan, kemudian dilakukan pengklasifikasian menggunakan algoritma <i>K-Nearest Neighbor</i> (K-NN) untuk mendapatkan prediksi kematangan TBS berdasarkan data yang sudah ada (Halela, Nurhadiyono, & Rahmanti, 2016). Hasil yang didapat setelah aplikasi mengolah citra akan disajikan menggunakan sistem operasi android dan akan menampilkan apakah TBS tersebut layak untuk diangkut atau tidak.</p>
                     </div>
                 </div>
             </div>

@@ -110,7 +110,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Basic Table</h4>
+                    <h4 class="page-title">Upload Data Training Tanpa Kotak</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -119,7 +119,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo base_url();?>Welcome/index/">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Basic Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Upload Data Training Tanpa Kotak</li>
                             </ol>
                         </nav>
                     </div>

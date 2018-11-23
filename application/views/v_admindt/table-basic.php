@@ -121,7 +121,7 @@
                                     <li class="breadcrumb-item">
                                         <a href="<?php echo base_url();?>Welcome/index/">Home</a>
                                     </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Basic Table</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Tabel Data Training Tanpa Kotak</li>
                                 </ol>
                             </nav>
                         </div>
