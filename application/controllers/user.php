@@ -37,7 +37,7 @@ class User extends CI_Controller {
 	}
 	public function aksi_upload(){
 		$config['upload_path']          = './gambar/datatestingtanpakotak';
-		$config['allowed_types']        = 'jpeg|jpg';
+		$config['allowed_types']        = 'jpg';
  
 		$data=$this->load->library('upload', $config);
  		//print_r($data);

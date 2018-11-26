@@ -25,13 +25,13 @@ class User2 extends CI_Controller {
 	 */
 	public function aksi_upload(){
 		$config['upload_path']          = './gambar/datatestingdengankotak';
-		$config['allowed_types']        = 'jpeg|jpg';
+		$config['allowed_types']        = 'jpg';
  
 		$data=$this->load->library('upload', $config);
  		//print_r($data);
 		if ( !$this->upload->do_upload('image')){
 			$error = array('error' => $this->session->set_flashdata('Gagal', '<p>Gagal Upload</p>'));
-			$this->load->view('index', $error);
+			$this->load->view('testingdengankotak', $error);
 		}else{
 			$berhasil = array('error' => $this->session->set_flashdata('Berhasil', '<p>File Berhasil Di Upload</p>'));
 						$data = array('upload_data' => $this->upload->data());

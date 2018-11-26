@@ -16,7 +16,7 @@ class Upload extends CI_Controller{
 	}
 	public function aksi_upload(){
 		$config['upload_path']          = './gambar/';
-		$config['allowed_types']        = 'zip|rar'; 
+		$config['allowed_types']        = 'zip'; 
 		$this->load->library('upload', $config);
  
 		if ( ! $this->upload->do_upload('berkas'))
