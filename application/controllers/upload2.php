@@ -39,7 +39,7 @@ class Upload2 extends CI_Controller{
             } else {
                     echo 'failed';
             }
-			redirect('upload/viewdt', $data);
+			redirect('upload2/viewdt', $data);
 		}
 	}
 }
