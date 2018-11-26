@@ -35,7 +35,7 @@ class Upload2 extends CI_Controller{
                     $zip->extractTo('./gambar/hasil/');
                     $zip->close();
                     @unlink($config['upload_path'].'/'.$data['upload_data']['file_name']);
-                    redirect( site_url('upload/viewdt') );
+                    redirect( site_url('upload2/viewdt') );
             } else {
                     echo 'failed';
             }
