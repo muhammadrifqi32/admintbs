@@ -78,75 +78,77 @@
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="ti-more"></i>
-                    </a>
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="ti-more"></i>
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <?php
+            $this->load->view('atas');
+            ?>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <?php
+    $this->load->view('menu');
+    ?>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Tabel Data Training Dengan Kotak</h4>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <?php
-                $this->load->view('atas');
-                  ?>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <?php
-                $this->load->view('menu');
-                  ?>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-5 align-self-center">
-                        <h4 class="page-title">Tabel Data Training Dengan Kotak</h4>
-                    </div>
-                    <div class="col-7 align-self-center">
-                        <div class="d-flex align-items-center justify-content-end">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="<?php echo base_url();?>Welcome/index/">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tabel Data Training Dengan Kotak</li>
-                                </ol>
-                            </nav>
-                        </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="<?php echo base_url();?>Welcome/index/">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Tabel Data Training Dengan Kotak</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
-            <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
-                <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Table Header</h4>
-                                <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
-                            </div>
-                            <div class="table-responsive">
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
 
+        <div class="container-fluid">
+            <!-- ============================================================== -->
+            <!-- Start Page Content -->
+            <!-- ============================================================== -->
+            <div class="row">
+                <div class="col-12">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Table Header</h4>
+                            <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
+                            <a href="<?php echo base_url('datatraining2/tambahdt'); ?>" class="btn btn-success">Input Data</a>
+                            <?php echo $this->session->flashdata('Gagal'); ?>
+                        </div>
+                        <div class="table-responsive">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead class="thead-light">
                                         <tr>
@@ -159,19 +161,19 @@
                                         </tr>
                                     </thead>
                                     <tbody>
-                                    <?php 
-                                    $id = 1;
-                                    foreach($datatraining2 as $u){ 
-                                    ?>
-                                    <tr>
-                                        <td><?php echo $id++ ?></td>
-                                        <td><img height="50" width="50" src="<?php echo base_url().'gambar/hasil/data_trainingdengankotak/'.$u->namafile; ?>"></td>
-                                        <td><?php echo $u->r ?></td>
-                                        <td><?php echo $u->g ?></td>
-                                        <td><?php echo $u->b ?></td>
-                                        <td><?php echo $u->Label ?></td>
-                                    </tr>
-                                    <?php } ?>
+                                        <?php 
+                                        $id = 1;
+                                        foreach($datatraining2 as $u){ 
+                                            ?>
+                                            <tr>
+                                                <td><?php echo $id++ ?></td>
+                                                <td><img height="50" width="50" src="<?php echo base_url().'gambar/hasil/data_trainingdengankotak/'.$u->namafile; ?>"></td>
+                                                <td><?php echo $u->r ?></td>
+                                                <td><?php echo $u->g ?></td>
+                                                <td><?php echo $u->b ?></td>
+                                                <td><?php echo $u->Label ?></td>
+                                            </tr>
+                                        <?php } ?>
                                     </tbody>
                                 </table>
                             </div>
@@ -234,8 +236,8 @@
 
     <script type="text/javascript">
         $(document).ready(function() {
-    $('#example').DataTable();
-} );
+            $('#example').DataTable();
+        } );
     </script>
 </body>
 

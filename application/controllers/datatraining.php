@@ -45,9 +45,10 @@ class Datatraining extends CI_Controller{
 								$rata++;	
 							}
 						}
-						$cek = $this->db->query("SELECT * FROM datatraining where namafile='".$file."'")->num_rows();
+						$cek = $this->db->query("SELECT * FROM datatraining where namafile like '%".$file."%'")->num_rows();
 						if ($cek>0){
-							echo "record sudah ada";
+							$error = array('error' => $this->session->set_flashdata('Gagal', '<p>Gagal Upload</p>'));
+							$this->load->view('v_admindt/table-basic', $error);
 
 						}else{
 							$data = array(
@@ -97,9 +98,10 @@ class Datatraining extends CI_Controller{
 								$rata++;	
 							}
 						}
-						$cek = $this->db->query("SELECT * FROM datatraining where namafile='".$file."'")->num_rows();
+						$cek = $this->db->query("SELECT * FROM datatraining where namafile like '%".$file."%'")->num_rows();
 						if ($cek>0){
-							echo "record sudah ada";
+							$error = array('error' => $this->session->set_flashdata('Gagal', '<p>Record Sudah Ada</p>'));
+							$this->load->view('v_admindt/table-basic', $error);
 						}
 						else{
 							$data = array(

@@ -144,7 +144,7 @@
                         <div class="form-group">
                             <label>Upload Gambar Untuk Cek Kematangan Sawit Tanpa Kotak</label>
                             <?php echo form_open_multipart('user/aksi_upload');?>
-                            <input type="file" class="form-control" name="image" accept="image/*" capture="camera">
+                            <input type="file" class="form-control" name="image" accept="image/*">
                         </div>
                         <div class="form-group">
                             <div class="col-sm-12">
