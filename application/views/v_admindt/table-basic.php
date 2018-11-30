@@ -78,92 +78,96 @@
                     <!-- Toggle which is visible on mobile only -->
                     <!-- ============================================================== -->
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent"
-                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                        <i class="ti-more"></i>
-                    </a>
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="ti-more"></i>
+                </a>
+            </div>
+            <!-- ============================================================== -->
+            <!-- End Logo -->
+            <!-- ============================================================== -->
+            <?php
+            $this->load->view('atas');
+            ?>
+        </nav>
+    </header>
+    <!-- ============================================================== -->
+    <!-- End Topbar header -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <?php
+    $this->load->view('menu');
+    ?>
+    <!-- ============================================================== -->
+    <!-- End Left Sidebar - style you can find in sidebar.scss  -->
+    <!-- ============================================================== -->
+    <!-- ============================================================== -->
+    <!-- Page wrapper  -->
+    <!-- ============================================================== -->
+    <div class="page-wrapper">
+        <!-- ============================================================== -->
+        <!-- Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <div class="page-breadcrumb">
+            <div class="row">
+                <div class="col-5 align-self-center">
+                    <h4 class="page-title">Tabel Data Training Tanpa Kotak</h4>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End Logo -->
-                <!-- ============================================================== -->
-                <?php
-                $this->load->view('atas');
-                  ?>
-            </nav>
-        </header>
-        <!-- ============================================================== -->
-        <!-- End Topbar header -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <?php
-                $this->load->view('menu');
-                  ?>
-        <!-- ============================================================== -->
-        <!-- End Left Sidebar - style you can find in sidebar.scss  -->
-        <!-- ============================================================== -->
-        <!-- ============================================================== -->
-        <!-- Page wrapper  -->
-        <!-- ============================================================== -->
-        <div class="page-wrapper">
-            <!-- ============================================================== -->
-            <!-- Bread crumb and right sidebar toggle -->
-            <!-- ============================================================== -->
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-5 align-self-center">
-                        <h4 class="page-title">Tabel Data Training Tanpa Kotak</h4>
-                    </div>
-                    <div class="col-7 align-self-center">
-                        <div class="d-flex align-items-center justify-content-end">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item">
-                                        <a href="<?php echo base_url();?>Welcome/index/">Home</a>
-                                    </li>
-                                    <li class="breadcrumb-item active" aria-current="page">Tabel Data Training Tanpa Kotak</li>
-                                </ol>
-                            </nav>
-                        </div>
+                <div class="col-7 align-self-center">
+                    <div class="d-flex align-items-center justify-content-end">
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb">
+                                <li class="breadcrumb-item">
+                                    <a href="<?php echo base_url();?>Welcome/index/">Home</a>
+                                </li>
+                                <li class="breadcrumb-item active" aria-current="page">Tabel Data Training Tanpa Kotak</li>
+                            </ol>
+                        </nav>
                     </div>
                 </div>
             </div>
+        </div>
+        <!-- ============================================================== -->
+        <!-- End Bread crumb and right sidebar toggle -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Container fluid  -->
+        <!-- ============================================================== -->
+        <div class="container-fluid">
             <!-- ============================================================== -->
-            <!-- End Bread crumb and right sidebar toggle -->
+            <!-- Start Page Content -->
             <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- Container fluid  -->
-            <!-- ============================================================== -->
-            <div class="container-fluid">
-                <!-- ============================================================== -->
-                <!-- Start Page Content -->
-                <!-- ============================================================== -->
-                <div class="row">
+            <div class="row">
                 <div class="col-12">
-                        <div class="card">
-                            <div class="card-body">
-                                <h4 class="card-title">Table Header</h4>
-                                <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
-                                <a href="<?php echo base_url('datatraining/tambahdt'); ?>" class="btn btn-success">Input Data</a>
-                                <?php echo $this->session->flashdata('Gagal'); ?>
-                            </div>
-                            <div class="table-responsive">
+                    <div class="card">
+                        <div class="card-body">
+                            <h4 class="card-title">Table Header</h4>
+                            <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
+                            <a href="<?php echo base_url('datatraining/tambahdt'); ?>" class="btn btn-success">Input Data</a>
+                            <?php if ($this->session->flashdata('eror')) { ?>
+                             <script>
+                                alert("Record Sudah Ada");
+                            </script>
+                        <?php } ?>
+                    </div>
+                    <div class="table-responsive">
 
-                                <table id="example" class="table table-striped table-bordered" style="width:100%">
-                                    <thead class="thead-light">
-                                        <tr>
-                                            <th scope="col">ID</th>
-                                            <th scope="col">Gambar TBS</th>
-                                            <th scope="col">R</th>
-                                            <th scope="col">G</th>
-                                            <th scope="col">B</th>
-                                            <th scope="col">Label</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                    <?php 
-                                    $id = 1;
-                                    foreach($datatraining as $u){ 
+                        <table id="example" class="table table-striped table-bordered" style="width:100%">
+                            <thead class="thead-light">
+                                <tr>
+                                    <th scope="col">ID</th>
+                                    <th scope="col">Gambar TBS</th>
+                                    <th scope="col">R</th>
+                                    <th scope="col">G</th>
+                                    <th scope="col">B</th>
+                                    <th scope="col">Label</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <?php 
+                                $id = 1;
+                                foreach($datatraining as $u){ 
                                     ?>
                                     <tr>
                                         <td><?php echo $id++ ?></td>
@@ -173,72 +177,72 @@
                                         <td><?php echo $u->b ?></td>
                                         <td><?php echo $u->Label ?></td>
                                     </tr>
-                                    <?php } ?>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
+                                <?php } ?>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
-                <!-- ============================================================== -->
-                <!-- End PAge Content -->
-                <!-- ============================================================== -->
-                <!-- ============================================================== -->
-                <!-- Right sidebar -->
-                <!-- ============================================================== -->
-                <!-- .right-sidebar -->
-                <!-- ============================================================== -->
-                <!-- End Right sidebar -->
-                <!-- ============================================================== -->
             </div>
-            <!-- ============================================================== -->
-            <!-- End Container fluid  -->
-            <!-- ============================================================== -->
-            <!-- ============================================================== -->
-            <!-- footer -->
-            <!-- ============================================================== -->
-            <footer class="footer text-center">
-                All Rights Reserved by Nice admin. Designed and Developed by
-                <a href="https://wrappixel.com">WrapPixel</a>.
-            </footer>
-            <!-- ============================================================== -->
-            <!-- End footer -->
-            <!-- ============================================================== -->
         </div>
         <!-- ============================================================== -->
-        <!-- End Page wrapper  -->
+        <!-- End PAge Content -->
+        <!-- ============================================================== -->
+        <!-- ============================================================== -->
+        <!-- Right sidebar -->
+        <!-- ============================================================== -->
+        <!-- .right-sidebar -->
+        <!-- ============================================================== -->
+        <!-- End Right sidebar -->
         <!-- ============================================================== -->
     </div>
     <!-- ============================================================== -->
-    <!-- End Wrapper -->
+    <!-- End Container fluid  -->
     <!-- ============================================================== -->
     <!-- ============================================================== -->
-    <!-- All Jquery -->
+    <!-- footer -->
     <!-- ============================================================== -->
-    <script src="<?php echo base_url();?>assets2/assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
-    <script src="<?php echo base_url();?>assets2/assets/libs/popper.js/dist/umd/popper.min.js"></script>
-    <script src="<?php echo base_url();?>assets2/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
-    <!-- slimscrollbar scrollbar JavaScript -->
-    <script src="<?php echo base_url();?>assets2/assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
-    <script src="<?php echo base_url();?>assets2/dist/js/waves.js"></script>
-    <!--Menu sidebar -->
-    <script src="<?php echo base_url();?>assets2/dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
-    <script src="<?php echo base_url();?>assets2/dist/js/custom.min.js"></script>
+    <footer class="footer text-center">
+        All Rights Reserved by Nice admin. Designed and Developed by
+        <a href="https://wrappixel.com">WrapPixel</a>.
+    </footer>
+    <!-- ============================================================== -->
+    <!-- End footer -->
+    <!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Page wrapper  -->
+<!-- ============================================================== -->
+</div>
+<!-- ============================================================== -->
+<!-- End Wrapper -->
+<!-- ============================================================== -->
+<!-- ============================================================== -->
+<!-- All Jquery -->
+<!-- ============================================================== -->
+<script src="<?php echo base_url();?>assets2/assets/libs/jquery/dist/jquery.min.js"></script>
+<!-- Bootstrap tether Core JavaScript -->
+<script src="<?php echo base_url();?>assets2/assets/libs/popper.js/dist/umd/popper.min.js"></script>
+<script src="<?php echo base_url();?>assets2/assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
+<!-- slimscrollbar scrollbar JavaScript -->
+<script src="<?php echo base_url();?>assets2/assets/extra-libs/sparkline/sparkline.js"></script>
+<!--Wave Effects -->
+<script src="<?php echo base_url();?>assets2/dist/js/waves.js"></script>
+<!--Menu sidebar -->
+<script src="<?php echo base_url();?>assets2/dist/js/sidebarmenu.js"></script>
+<!--Custom JavaScript -->
+<script src="<?php echo base_url();?>assets2/dist/js/custom.min.js"></script>
 
-    <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets2/datatables2/jquery-3.3.1.js"></script>
-    <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets2/datatables2/jquery.dataTables.min.js"></script>
-    <script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets2/datatables2/dataTables.bootstrap4.min.js"></script>
-    
-    
+<script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets2/datatables2/jquery-3.3.1.js"></script>
+<script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets2/datatables2/jquery.dataTables.min.js"></script>
+<script type="text/javascript" charset="utf8" src="<?php echo base_url();?>assets2/datatables2/dataTables.bootstrap4.min.js"></script>
 
-    <script type="text/javascript">
-        $(document).ready(function() {
-    $('#example').DataTable();
-} );
-    </script>
+
+
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('#example').DataTable();
+    } );
+</script>
 </body>
 
 </html>

@@ -145,8 +145,11 @@
                         <div class="card-body">
                             <h4 class="card-title">Table Header</h4>
                             <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
-                            <a href="<?php echo base_url('datatraining2/tambahdt'); ?>" class="btn btn-success">Input Data</a>
-                            <?php echo $this->session->flashdata('Gagal'); ?>
+                            <a href="<?php echo base_url('datatraining2/tambahdt'); ?>" class="btn btn-success">Input Data</a><?php if ($this->session->flashdata('eror')) { ?>
+                             <script>
+                                alert("Record Sudah Ada");
+                            </script>
+                        <?php } ?>
                         </div>
                         <div class="table-responsive">
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">

@@ -33,8 +33,8 @@ class Login extends CI_Controller{
  
 		}
 		else{
-			$error = array('error' => $this->session->set_flashdata('Gagal', '<p>*Username atau Password Salah</p>'));
-			$this->load->view('login/v_login', $error);
+			$error = array('error' => $this->session->set_flashdata('Gagal', '<div class="alert alert-danger" role="alert">Password Salah</div>'));
+			redirect("login", $error);
 		}
 	}
  
