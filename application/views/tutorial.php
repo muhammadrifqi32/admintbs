@@ -140,10 +140,10 @@
                         <h5 class="card-subtitle"></h5>
                         <div class="card-body">
                             <div>
-                                Klik Menu Upload
+                                Klik salah satu menu upload, dengan kotak atau tanpa kotak. Disesuaikan dengan data training yang akan diupload.
                                 <div style="margin-bottom: 5px;">
                                     <span style="font-size: small; font-weight:bold;">Step 1:</span>
-                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Buka'; }">
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
                                 </div>
                                 <div style="margin: 0px; padding: 10px; border: 1px inset;">
                                     <div style="display: none;"> 
@@ -153,14 +153,96 @@
                             </div>
                             <div>
                                 <hr>
-                                Kemudian klik browse untuk mencari file yang akan diupload. File yang diupload harus berekstensi .zip
+                                Setelah menu upload terbuka, kemudian klik <i>browse</i> untuk mencari file yang akan diupload. File yang diupload harus berekstensi .zip
                                 <div style="margin-bottom: 5px;">
-                                    <span style="font-size: large; font-weight:bold;">Step 1:</span>
-                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Buka'; }">
+                                    <span style="font-size: small; font-weight:bold;">Step 2:</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
                                 </div>
                                 <div style="margin: 0px; padding: 10px; border: 1px inset;">
                                     <div style="display: none;"> 
                                         <img src="<?php echo base_url();?>tutor/menuupload.png" class="img-thumbnail" alt="Cinque Terre"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                            Untuk file yang diupload nama file harus disesuaikan. Jika ingin mengupload data training dengan kondisi dengan kotak, maka nama file-nya adalah <b><u>"data_trainingtanpakotak"</u></b>. Sebaliknya,Jika ingin mengupload data training dengan kondisi dengan kotak, maka nama file-nya adalah <b><u>"data_trainingtanpakotak".</u></b>                                
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;">
+                                    <center><img src="<?php echo base_url();?>tutor/uploadzip.png" class="img-thumbnail" alt="Cinque Terre"></center>                                          
+                                    </div>
+                                </div>
+                            </div>
+                            <div>                                
+                                File yang diupload merupakan folder yang telah diubah ekstensinya menjadi .zip, merupakan <b><u>data training</u></b> sesuai dengan kondisi yang akan diupload, dan berisi dua folder. Yaitu, <b><u>layakangkut</u></b> dan <b><u>tidaklayakangkut</u></b>. Setiap folder tersebut berisi foto TBS menyesuaikan dengan nama folder. 
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;"> 
+                                        <center><img src="<?php echo base_url();?>tutor/folder.png" class="img-thumbnail" alt="Cinque Terre"></center> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                Kemudian, klik tombol <i>Upload</i>, tunggu beberapa saat sementara aplikasi meng-<i>upload gambar</i>. Jika gambar telah ter-<i>upload</i>, maka akan muncul tampilan seperti berikut.
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;"> 
+                                        <img src="<?php echo base_url();?>tutor/klikupload.png" class="img-thumbnail" alt="Cinque Terre"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Jika gambar telah ter-<i>upload</i>, maka akan muncul tampilan seperti berikut.
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;"> 
+                                        <img src="<?php echo base_url();?>tutor/uploadsuccess.png" class="img-thumbnail" alt="Cinque Terre"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div>
+                                <hr>
+                                Untuk memasukkan data ke <i>database</i>, klik menu tabel data training dan sesuaikan dengan data yang telah diupload.
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">Step 3:</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;"> 
+                                        <img src="<?php echo base_url();?>tutor/bukatabel.png" class="img-thumbnail" alt="Cinque Terre"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Kemudian klik tombol <i>input</i>, tunggu beberapa saat
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;"> 
+                                        <img src="<?php echo base_url();?>tutor/klikinput.png" class="img-thumbnail" alt="Cinque Terre"> 
+                                    </div>
+                                </div>
+                            </div>
+                            <div>Data training telah dimasukkan ke database.
+                                <div style="margin-bottom: 5px;">
+                                    <span style="font-size: small; font-weight:bold;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</span>
+                                    <input value="Klik Untuk Melihat Isi" type="button" onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Tutup'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Klik Untuk Melihat Isi'; }">
+                                </div>
+                                <div style="margin: 0px; padding: 10px; border: 1px inset;">
+                                    <div style="display: none;"> 
+                                        <img src="<?php echo base_url();?>tutor/inputsuccess.png" class="img-thumbnail" alt="Cinque Terre"> 
                                     </div>
                                 </div>
                             </div>

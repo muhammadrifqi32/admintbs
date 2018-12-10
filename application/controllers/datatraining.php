@@ -9,7 +9,7 @@ class Datatraining extends CI_Controller{
 			redirect(base_url("login"));
 		}
 	}
-	function nampil(){
+	function index(){
 		$data['datatraining'] = $this->m_admin->tampildatatraining()->result();
 		$this->load->view('v_admindt/table-basic',$data, array('error' => ' ' ));
 	}
@@ -122,7 +122,17 @@ class Datatraining extends CI_Controller{
 	function tambahdt(){
 		$this->tambah_aksilayak();
 		$this->tambah_aksitidaklayak();		
-		redirect('datatraining/nampil');
+		redirect('datatraining');
+	}
+	function hapus($namafile){
+        // $id = $this->input->get('namafile');
+        // $this->m_admin->hapus_data($id);
+        // redirect('datatraining');
+	$id = $this->input->post('namafile');
+          //  $group_picture = $this->input->post('group_picture');
+            $this->m_admin->hapus_data($namafile);
+         //   $file = $data['upload_data']['full_path'];
+           //chmod('./secure/'.$data['row']->videothumbnail, 0777); chmod($file,0777);
 	}
 	public function tes()
 	{

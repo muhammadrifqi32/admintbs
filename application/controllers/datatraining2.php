@@ -9,7 +9,7 @@ class Datatraining2 extends CI_Controller{
 			redirect(base_url("login"));
 		}
 	}
-	function nampil(){
+	function index(){
 		$data['datatraining2'] = $this->m_admin2->tampildatatraining()->result();
 		$this->load->view('v_admindt/table-basicdengankotak',$data, array('error' => ' ' ));
 	}
@@ -122,6 +122,6 @@ class Datatraining2 extends CI_Controller{
 	function tambahdt(){
 		$this->tambah_aksilayak();
 		$this->tambah_aksitidaklayak();		
-		redirect('datatraining2/nampil');
+		redirect('datatraining2');
 	}
 }

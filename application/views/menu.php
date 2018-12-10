@@ -49,13 +49,13 @@
                     </a>
                     <ul class="collapse first-level">                               
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url();?>datatraining2/nampil/" class="sidebar-link">
+                            <a href="<?php echo base_url();?>datatraining2/" class="sidebar-link">
                                 <i class="mdi mdi-format-list-numbers"></i>
                                 <span class="hide-menu"> Dengan Kotak </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url();?>datatraining/nampil/" class="sidebar-link">
+                            <a href="<?php echo base_url();?>datatraining/" class="sidebar-link">
                                 <i class="mdi mdi-format-list-numbers"></i>
                                 <span class="hide-menu"> Tanpa Kotak </span>
                             </a>

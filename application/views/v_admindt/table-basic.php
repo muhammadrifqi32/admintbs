@@ -156,6 +156,7 @@
                         <table id="example" class="table table-striped table-bordered" style="width:100%">
                             <thead class="thead-light">
                                 <tr>
+                                    <th scope="col">Hapus</th>
                                     <th scope="col">ID</th>
                                     <th scope="col">Gambar TBS</th>
                                     <th scope="col">R</th>
@@ -166,11 +167,12 @@
                             </thead>
                             <tbody>
                                 <?php 
-                                $id = 1;
+                                $no = 1;
                                 foreach($datatraining as $u){ 
                                     ?>
                                     <tr>
-                                        <td><?php echo $id++ ?></td>
+                                        <td><?php echo anchor('datatraining/hapus/'.$u->namafile,'Hapus'); ?></td>
+                                        <td><?php echo $no++ ?></td>
                                         <td><img height="50" width="50" src="<?php echo base_url().'gambar/hasil/data_trainingtanpakotak/'.$u->namafile; ?>"></td>
                                         <td><?php echo $u->r ?></td>
                                         <td><?php echo $u->g ?></td>
