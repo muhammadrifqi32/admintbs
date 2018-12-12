@@ -149,8 +149,15 @@
                         <div class="form-group">
                             <div class="col-sm-12">
                                 <button class="btn btn-success" value="upload">Upload</button>
-                                <?php echo $this->session->flashdata('Gagal'); ?>
-                                <?php echo $this->session->flashdata('Berhasil'); ?>
+                                <?php if ($this->session->flashdata('Gagal')) { ?>
+                             <script>
+                                alert("File Gagal Diupload");
+                            </script>
+                        <?php } else if ($this->session->flashdata('Berhasil')) { ?>
+                            <script>
+                                alert("File Berhasil Diupload");
+                            </script>
+                        <?php } ?>
                             </div>
                         </div>
                     </div>

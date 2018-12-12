@@ -14,6 +14,7 @@ class Datatraining extends CI_Controller{
 		$this->load->view('v_admindt/table-basic',$data, array('error' => ' ' ));
 	}
 	function tambah_aksilayak(){
+		$cek1 = false;
 		$dir = "gambar/hasil/data_trainingtanpakotak/layakangkut/";
 		if (is_dir($dir)){
 			if ($dh = opendir($dir)){
@@ -47,10 +48,9 @@ class Datatraining extends CI_Controller{
 						}
 						$cek = $this->db->query("SELECT * FROM datatraining where namafile like '%".$file."%'")->num_rows();
 						if ($cek>0){
-							$error = array('error' => $this->session->set_flashdata('eror', 'error message.'));
-							$this->load->view('v_admindt/table-basic', $error);
 
 						}else{
+							$cek1 = true;
 							$data = array(
 								'namafile' => "layakangkut/".$file,
 								'r' => $r/$rata,
@@ -62,11 +62,13 @@ class Datatraining extends CI_Controller{
 						}
 					}
 				}
+				$this->tambah_aksitidaklayak($cek1);	
 				closedir($dh);
 			}
 		}
 	}
-	function tambah_aksitidaklayak(){
+	function tambah_aksitidaklayak($cek2){
+		$cek1 = $cek2;
 		$dir = "gambar/hasil/data_trainingtanpakotak/tidaklayakangkut/";
 		if (is_dir($dir)){
 			if ($dh = opendir($dir)){
@@ -86,7 +88,7 @@ class Datatraining extends CI_Controller{
 						$this->image_lib->initialize($config);
 						$this->image_lib->resize();
 
-						$imtidaklayak = imagecreatefromjpeg("gambar/hasil/data_trainingtanpakotak/tidaklayakangkut/".$file);	
+						$imtidaklayak = imagecreatefromjpeg("gambar/hasil/data_trainingtanpakotak/tidaklayakangkut/".$file);
 						$rata=0;	
 						$r=$g=$b=0;
 						for ($i=160; $i < 318; $i+=10) { 
@@ -99,11 +101,11 @@ class Datatraining extends CI_Controller{
 							}
 						}
 						$cek = $this->db->query("SELECT * FROM datatraining where namafile like '%".$file."%'")->num_rows();
-						if ($cek>0){
-							$error = array('error' => $this->session->set_flashdata('eror', 'error message.'));
-							$this->load->view('v_admindt/table-basic', $error);
+						if ($cek>0){	
+							
 						}
 						else{
+							$cek1 = true;
 							$data = array(
 								'namafile' => "tidaklayakangkut/".$file,
 								'r' => $r/$rata,
@@ -115,24 +117,28 @@ class Datatraining extends CI_Controller{
 						}
 					}
 				}
+				if($cek1){
+					$error = array('error' => $this->session->set_flashdata('Berhasil', '<p> Data Berhasil Diperbaharui</p>'));
+					$this->load->view('v_admindt/table-basic', $error);
+				}
+				else{
+					$error = array('error' => $this->session->set_flashdata('Gagal', '<p> Data Telah Ada!</p>'));
+					$this->load->view('v_admindt/table-basic', $error);
+				}
 				closedir($dh);
 			}
 		}
 	}
 	function tambahdt(){
-		$this->tambah_aksilayak();
-		$this->tambah_aksitidaklayak();		
+		$this->tambah_aksilayak();	
 		redirect('datatraining');
 	}
-	function hapus($namafile){
-        // $id = $this->input->get('namafile');
-        // $this->m_admin->hapus_data($id);
-        // redirect('datatraining');
-	$id = $this->input->post('namafile');
-          //  $group_picture = $this->input->post('group_picture');
-            $this->m_admin->hapus_data($namafile);
-         //   $file = $data['upload_data']['full_path'];
-           //chmod('./secure/'.$data['row']->videothumbnail, 0777); chmod($file,0777);
+	function hapus($a,$b){
+		$group_id = $this->input->post('ID');
+		$group_picture = $this->input->post('namafile');
+		unlink(FCPATH."/gambar/hasil/data_trainingtanpakotak/".$a."/".$b);
+		$this->m_admin->hapus_data($group_id, $a."/".$b);
+		redirect('datatraining');
 	}
 	public function tes()
 	{

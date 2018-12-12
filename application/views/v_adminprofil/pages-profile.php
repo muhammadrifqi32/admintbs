@@ -190,7 +190,7 @@
                                      <div class="form-group">
                                         <label class="col-md-12">E-mail</label>
                                         <div class="col-md-12">
-                                            <input type="text" placeholder="New E-mail" name="email" class="form-control form-control-line" required>
+                                            <input type="email" placeholder="New E-mail" name="email" class="form-control form-control-line" required>
                                         </div>
                                     </div>
                                      <div class="form-group">
@@ -239,7 +239,7 @@
                                     -->
                                     <div class="form-group">
                                         <div class="col-sm-12">
-                                            <button class="btn btn-success">Update Profile</button>
+                                            <button class="btn btn-success" onclick="myFunction()">Update Profile</button>
                                         </div>
                                     </div>
                                 </form>
@@ -296,6 +296,11 @@
     <script src="<?php echo base_url();?>assets2/dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="<?php echo base_url();?>assets2/dist/js/custom.min.js"></script>
+    <script>
+function myFunction() {
+    confirm("Apakah Anda Yakin Ingin Mengubah Data?");
+}
+</script>
 </body>
 
 </html>

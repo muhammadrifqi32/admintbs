@@ -145,9 +145,14 @@
                         <div class="card-body">
                             <h4 class="card-title">Table Header</h4>
                             <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
-                            <a href="<?php echo base_url('datatraining2/tambahdt'); ?>" class="btn btn-success">Input Data</a><?php if ($this->session->flashdata('eror')) { ?>
+                            <a href="<?php echo base_url('datatraining2/tambahdt'); ?>" class="btn btn-success">Input Data</a>
+                            <?php if ($this->session->flashdata('Gagal')) { ?>
                              <script>
                                 alert("Record Sudah Ada");
+                            </script>
+                        <?php } else if ($this->session->flashdata('Berhasil')) { ?>
+                            <script>
+                                alert("Record Berhasil Diperbaharui");
                             </script>
                         <?php } ?>
                         </div>
@@ -155,6 +160,7 @@
                                 <table id="example" class="table table-striped table-bordered" style="width:100%">
                                     <thead class="thead-light">
                                         <tr>
+                                            <th scope="col">Hapus</th>
                                             <th scope="col">ID</th>
                                             <th scope="col">Gambar TBS</th>
                                             <th scope="col">R</th>
@@ -165,11 +171,11 @@
                                     </thead>
                                     <tbody>
                                         <?php 
-                                        $id = 1;
                                         foreach($datatraining2 as $u){ 
                                             ?>
                                             <tr>
-                                                <td><?php echo $id++ ?></td>
+                                                <td><?php echo anchor('datatraining2/hapus/'.$u->namafile,'Hapus'); ?></td>
+                                                <td><?php echo $u->ID ?></td>
                                                 <td><img height="50" width="50" src="<?php echo base_url().'gambar/hasil/data_trainingdengankotak/'.$u->namafile; ?>"></td>
                                                 <td><?php echo $u->r ?></td>
                                                 <td><?php echo $u->g ?></td>

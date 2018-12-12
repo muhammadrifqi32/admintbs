@@ -14,6 +14,7 @@ class Datatraining2 extends CI_Controller{
 		$this->load->view('v_admindt/table-basicdengankotak',$data, array('error' => ' ' ));
 	}
 	function tambah_aksilayak(){
+		$cek1 = false;
 		$dir = "gambar/hasil/data_trainingdengankotak/layakangkut/";
 		if (is_dir($dir)){
 			if ($dh = opendir($dir)){
@@ -47,10 +48,9 @@ class Datatraining2 extends CI_Controller{
 						}
 						$cek = $this->db->query("SELECT * FROM datatraining2 where namafile like '%".$file."%'")->num_rows();
 						if ($cek>0){
-							$error = array('error' => $this->session->set_flashdata('eror', 'error message.'));
-							$this->load->view('v_admindt/table-basic', $error);
 
 						}else{
+							$cek1 = true;
 							$data = array(
 								'namafile' => "layakangkut/".$file,
 								'r' => $r/$rata,
@@ -62,11 +62,13 @@ class Datatraining2 extends CI_Controller{
 						}
 					}
 				}
+				$this->tambah_aksitidaklayak($cek1);
 				closedir($dh);
 			}
 		}
 	}
-	function tambah_aksitidaklayak(){
+	function tambah_aksitidaklayak($cek2){
+		$cek1 = $cek2;
 		$dir = "gambar/hasil/data_trainingdengankotak/tidaklayakangkut/";
 		if (is_dir($dir)){
 			if ($dh = opendir($dir)){
@@ -99,11 +101,11 @@ class Datatraining2 extends CI_Controller{
 							}
 						}
 						$cek = $this->db->query("SELECT * FROM datatraining2 where namafile like '%".$file."%'")->num_rows();
-						if ($cek>0){
-							$error = array('error' => $this->session->set_flashdata('eror', 'error message.'));
-							$this->load->view('v_admindt/table-basic', $error);
+						if ($cek>0){	
+							
 						}
 						else{
+							$cek1 = true;
 							$data = array(
 								'namafile' => "tidaklayakangkut/".$file,
 								'r' => $r/$rata,
@@ -115,13 +117,27 @@ class Datatraining2 extends CI_Controller{
 						}
 					}
 				}
+				if($cek1){
+					$error = array('error' => $this->session->set_flashdata('Berhasil', '<p> Data Berhasil Diperbaharui</p>'));
+					$this->load->view('v_admindt/table-basicdengankotak', $error);
+				}
+				else{
+					$error = array('error' => $this->session->set_flashdata('Gagal', '<p> Data Telah Ada!</p>'));
+					$this->load->view('v_admindt/table-basicdengankotak', $error);
+				}
 				closedir($dh);
 			}
 		}
 	}
 	function tambahdt(){
-		$this->tambah_aksilayak();
-		$this->tambah_aksitidaklayak();		
+		$this->tambah_aksilayak();		
+		redirect('datatraining2');
+	}
+	function hapus($a,$b){
+		$group_id = $this->input->post('ID');
+		$group_picture = $this->input->post('namafile');
+		unlink(FCPATH."/gambar/hasil/data_trainingdengankotak/".$a."/".$b);
+		$this->m_admin2->hapus_data($group_id, $a."/".$b);
 		redirect('datatraining2');
 	}
 }

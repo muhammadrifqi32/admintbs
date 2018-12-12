@@ -17,33 +17,9 @@ class M_admin extends CI_Model{
 	function inputdatatraining($data,$table){
 		$this->db->insert($table,$data);
 	}
-	function hapus_data($namafile){
-		  $this->db->where('namafile', $namafile);
-	
-		        $this->db->delete('datatraining', array('namafile' => $namafile));
-		        	   chmod("./gambar/hasil/data_trainingtanpakotak/".$namafile, 0777);
-                         unlink("./gambar/hasil/data_trainingtanpakotak/".$namafile);
-              //  chmod("./gambar/hasil/data_trainingtanpakotak/".$namafile, 0777);
+	function hapus_data($group_id, $group_picture){
+		$this->db->where('namafile', $group_picture);
 
-          
-		// $row = $this->db->where('ID',$id)->get('gambar/hasil/data_trainingtanpakotak/')->row();
-		// $this->db->where($where);
-		// $this->db->delete($table);
-		// unlink('gambar/hasil/data_trainingtanpakotak/'.$row->namafile);
-
-		// $row = $this->db->where('id',$id)->get('namafile')->row();
-        // unlink('gambar/hasil/data_trainingtanpakotak/layakangkut/'.$row->picture);
-        // $this->db->where('id', $id);
-        // $this->db->delete($this->table);
-        // return true; 
-
-		// try {
-		// 	$this->db->where('id',$id)->delete('tb_gambar');
-		// 	return true;
-		// }
-  //   //catch exception
-		// catch(Exception $e) {
-		// 	echo $e->getMessage();
-		// }
+		$this->db->delete('datatraining', array('namafile' => $group_picture));
 	}
 }	
