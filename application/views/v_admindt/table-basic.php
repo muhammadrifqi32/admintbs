@@ -170,12 +170,13 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <?php 
+                                <?php
+                                $no=1; 
                                 foreach($datatraining as $u){ 
                                     ?>
                                     <tr>
                                         <td><?php echo anchor('datatraining/hapus/'.$u->namafile,'Hapus'); ?></td>
-                                        <td><?php echo $u->ID ?></td>
+                                        <td><?php echo $no++ ?></td>
                                         <td><img height="50" width="50" src="<?php echo base_url().'gambar/hasil/data_trainingtanpakotak/'.$u->namafile; ?>"></td>
                                         <td><?php echo $u->r ?></td>
                                         <td><?php echo $u->g ?></td>
