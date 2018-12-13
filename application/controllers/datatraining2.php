@@ -140,4 +140,12 @@ class Datatraining2 extends CI_Controller{
 		$this->m_admin2->hapus_data($group_id, $a."/".$b);
 		redirect('datatraining2');
 	}
+	function hapusemua(){
+		$this->db->empty_table('datatraining2');
+		$path='./gambar/hasil/data_trainingdengankotak/';
+		$this->load->helper("file"); // load the helper
+		delete_files($path, true); // delete all files/folders
+		rmdir($path);
+		redirect('datatraining2');
+	}
 }

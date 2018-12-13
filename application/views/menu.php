@@ -29,13 +29,13 @@
                     </a>
                     <ul class="collapse first-level">                               
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url();?>upload2/viewdt/" class="sidebar-link">
+                            <a href="<?php echo base_url();?>upload2/" class="sidebar-link">
                                 <i class="mdi mdi-cloud-upload"></i>
                                 <span class="hide-menu"> Dengan Kotak </span>
                             </a>
                         </li>
                         <li class="sidebar-item">
-                            <a href="<?php echo base_url();?>upload/viewdt/" class="sidebar-link">
+                            <a href="<?php echo base_url();?>upload/" class="sidebar-link">
                                 <i class="mdi mdi-cloud-upload"></i>
                                 <span class="hide-menu"> Tanpa Kotak </span>
                             </a>
@@ -62,6 +62,26 @@
                         </li>
                     </ul>
                 </li>
+                <li class="sidebar-item">
+                            <a class="sidebar-link has-arrow waves-effect waves-dark sidebar-link" aria-expanded="false">
+                                <i class="mdi mdi-arrange-bring-forward"></i>
+                                <span class="hide-menu">Cek Kematangan TBS</span>
+                            </a>
+                            <ul class="collapse first-level">                               
+                                <li class="sidebar-item">
+                                    <a href="<?php echo base_url();?>cekdk/" class="sidebar-link">
+                                        <i class="mdi mdi-arrange-bring-forward"></i>
+                                        <span class="hide-menu"> Dengan Kotak </span>
+                                    </a>
+                                </li>
+                                <li class="sidebar-item">
+                                    <a href="<?php echo base_url();?>cektk/" class="sidebar-link">
+                                        <i class="mdi mdi-arrange-bring-forward"></i>
+                                        <span class="hide-menu"> Tanpa Kotak </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </li> 
 <!--                         <li class="sidebar-item">
                             <a class="sidebar-link has-arrow waves-effect waves-dark active" href="javascript:void(0)" aria-expanded="false">
                                 <i class="mdi mdi-inbox"></i>

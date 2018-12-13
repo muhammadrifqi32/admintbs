@@ -119,7 +119,7 @@
                         <nav aria-label="breadcrumb">
                             <ol class="breadcrumb">
                                 <li class="breadcrumb-item">
-                                    <a href="<?php echo base_url();?>Welcome/index/">Home</a>
+                                    <a href="<?php echo base_url();?>user">Home</a>
                                 </li>
                                 <li class="breadcrumb-item active" aria-current="page">Cek Kematangan Sawit Tanpa Kotak</li>
                             </ol>

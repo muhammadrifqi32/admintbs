@@ -11,7 +11,7 @@ class Upload2 extends CI_Controller{
 			redirect(base_url("login"));
 		}
 	}
-	function viewdt(){
+	function index(){
 		$this->load->view('v_adminupload/form-basicdengankotak');
 	}
 	public function aksi_upload(){
@@ -24,6 +24,7 @@ class Upload2 extends CI_Controller{
 			//$error = array('error' => $this->upload->display_errors());
 			$error = array('error' => $this->session->set_flashdata('Gagal', '<p>Gagal Upload</p>'));
 			$this->load->view('v_adminupload/form-basicdengankotak', $error);
+			redirect('upload2/', $data);
 		}
 		else{
 			$data = array('upload_data' => $this->upload->data());
@@ -35,11 +36,11 @@ class Upload2 extends CI_Controller{
                     $zip->extractTo('./gambar/hasil/');
                     $zip->close();
                     @unlink($config['upload_path'].'/'.$data['upload_data']['file_name']);
-                    redirect( site_url('upload2/viewdt') );
+                    redirect( site_url('upload2') );
             } else {
                     echo 'failed';
             }
-			redirect('upload2/viewdt', $data);
+			redirect('upload2/', $data);
 		}
 	}
 }

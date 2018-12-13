@@ -145,6 +145,7 @@
                             <h4 class="card-title">Table Header</h4>
                             <h6 class="card-subtitle">Similar to tables, use the modifier classes .thead-light to make <code>&lt;thead&gt;</code>s appear light.</h6>
                             <a href="<?php echo base_url('datatraining/tambahdt'); ?>" class="btn btn-success">Input Data</a>
+                            <a href="<?php echo base_url('datatraining/hapusemua'); ?>" class="btn btn-danger">Hapus Seluruh Data</a>
                             <?php if ($this->session->flashdata('Gagal')) { ?>
                              <script>
                                 alert("Record Sudah Ada");
@@ -173,9 +174,8 @@
                                 <?php
                                 $no=1; 
                                 foreach($datatraining as $u){ 
-                                    ?>
-                                    <tr>
-                                        <td><?php echo anchor('datatraining/hapus/'.$u->namafile,'Hapus'); ?></td>
+                                    ?>                                    
+                                        <td><a href="<?php echo base_url('datatraining/hapus/').$u->namafile; ?>" class="btn btn-danger"><label>Hapus</label></a></td>
                                         <td><?php echo $no++ ?></td>
                                         <td><img height="50" width="50" src="<?php echo base_url().'gambar/hasil/data_trainingtanpakotak/'.$u->namafile; ?>"></td>
                                         <td><?php echo $u->r ?></td>

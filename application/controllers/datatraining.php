@@ -134,10 +134,20 @@ class Datatraining extends CI_Controller{
 		redirect('datatraining');
 	}
 	function hapus($a,$b){
+		//$a adalah folder
+		//$b adalah file
 		$group_id = $this->input->post('ID');
 		$group_picture = $this->input->post('namafile');
 		unlink(FCPATH."/gambar/hasil/data_trainingtanpakotak/".$a."/".$b);
 		$this->m_admin->hapus_data($group_id, $a."/".$b);
+		redirect('datatraining');
+	}
+	function hapusemua(){
+		$this->db->empty_table('datatraining');
+		$path='./gambar/hasil/data_trainingtanpakotak/';
+		$this->load->helper("file"); // load the helper
+		delete_files($path, true); // delete all files/folders
+		rmdir($path);
 		redirect('datatraining');
 	}
 	public function tes()

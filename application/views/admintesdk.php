@@ -2,6 +2,7 @@
 <html dir="ltr" lang="en">
 
 <head>
+    <!-- <meta http-equiv="refresh" content="30"> -->
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -12,8 +13,9 @@
     <link rel="icon" type="image/png" sizes="16x16" href="<?php echo base_url();?>assets2/assets/images/favicon.png">
     <title>Nice admin Template - The Ultimate Multipurpose admin template</title>
     <!-- Custom CSS -->
+    <link href="<?php echo base_url();?>assets2/assets/libs/chartist/dist/chartist.min.css" rel="stylesheet">
+    <!-- Custom CSS -->
     <link href="<?php echo base_url();?>assets2/dist/css/style.min.css" rel="stylesheet">
-    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.css">
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!--[if lt IE 9]>
@@ -50,7 +52,7 @@
                     <!-- Logo -->
                     <!-- ============================================================== -->
                     <div class="navbar-brand">
-                        <a href="<?php echo base_url();?>user" class="logo">
+                        <a href="<?php echo base_url();?>Welcome/index/" class="logo">
                             <!-- Logo icon -->
                             <b class="logo-icon">
                                 <!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
@@ -84,7 +86,7 @@
             <!-- End Logo -->
             <!-- ============================================================== -->
             <?php
-            $this->load->view('user/atasdashboard');
+            $this->load->view('atas');
             ?>
         </nav>
     </header>
@@ -95,7 +97,7 @@
     <!-- Left Sidebar - style you can find in sidebar.scss  -->
     <!-- ============================================================== -->
     <?php
-    $this->load->view('user/menudashboard');
+    $this->load->view('menu');
     ?>
     <!-- ============================================================== -->
     <!-- End Left Sidebar - style you can find in sidebar.scss  -->
@@ -110,7 +112,7 @@
         <div class="page-breadcrumb">
             <div class="row">
                 <div class="col-5 align-self-center">
-                    <h4 class="page-title">Basic Table</h4>
+                    <h4 class="page-title">Cek Kematangan Sawit Dengan Kotak</h4>
                 </div>
                 <div class="col-7 align-self-center">
                     <div class="d-flex align-items-center justify-content-end">
@@ -119,7 +121,7 @@
                                 <li class="breadcrumb-item">
                                     <a href="<?php echo base_url();?>Welcome/index/">Home</a>
                                 </li>
-                                <li class="breadcrumb-item active" aria-current="page">Basic Table</li>
+                                <li class="breadcrumb-item active" aria-current="page">Cek Kematangan Sawit Dengan Kotak</li>
                             </ol>
                         </nav>
                     </div>
@@ -140,8 +142,8 @@
                 <div class="col-12">
                     <div class="card card-body">
                         <div class="form-group">
-                            <label>Upload Gambar Untuk Cek Kematangan Sawit Tanpa Kotak</label>
-                            <?php echo form_open_multipart('user/aksi_upload');?>
+                            <label>Upload Gambar Untuk Cek Kematangan Sawit Dengan Kotak</label>
+                            <?php echo form_open_multipart('cekdk/aksi_upload');?>
                             <input type="file" class="form-control" name="image" accept="image/*">
                         </div>
                         <div class="form-group">
@@ -151,7 +153,33 @@
                                 <?php echo $this->session->flashdata('Berhasil'); ?>
                             </div>
                         </div>
+                        <?php
+                        require_once __DIR__ . '\php-ml\vendor\autoload.php';
+
+                        use Phpml\Classification\KNearestNeighbors;
+                        $data=$this->db->query("SELECT r,g,b,label FROM `datatraining2`")->result_array();
+                        $array=[];
+                        $label=[];
+                                // print_r($data);
+                        for ($i=0; $i < count($data); $i++) { 
+                            $arrayName = array(0 => $data[$i]['r'],1=>$data[$i]['g'],2=>$data[$i]['b'] );
+                                    //print_r($arrayName);
+                            $array[$i]=$arrayName;
+                            $label[$i]=$data[$i]['label'];
+                        }
+                                //print_r($array);
+
+                        $samples = $array;
+                                //print_r($samples);
+                        $labels = $label;
+
+                        $classifier = new KNearestNeighbors();
+                        $classifier->train($samples, $labels);
+                        if (isset($r)) {
+                            echo $classifier->predict([$r, $g,$b]);
+                        }
                         
+                        ?>
                     </div>
                 </div>
             </div>
@@ -206,6 +234,11 @@
 <script src="<?php echo base_url();?>assets2/dist/js/sidebarmenu.js"></script>
 <!--Custom JavaScript -->
 <script src="<?php echo base_url();?>assets2/dist/js/custom.min.js"></script>
+<!--This page JavaScript -->
+<!--chartis chart-->
+<script src="<?php echo base_url();?>assets2/assets/libs/chartist/dist/chartist.min.js"></script>
+<script src="<?php echo base_url();?>assets2/assets/libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js"></script>
+<script src="<?php echo base_url();?>assets2/dist/js/pages/dashboards/dashboard1.js"></script>
 </body>
 
 </html>
